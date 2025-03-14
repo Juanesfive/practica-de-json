@@ -7,11 +7,11 @@ import {
     getLimitedPhotos
   } from "./modulos/index.js";
   
-  // URL base de la API
+  // Aqui URL base de la API 
   const URL = "https://jsonplaceholder.typicode.com";
   
-  // Variable para guardar un ID de usuario en particular (aquí 3)
-  const usuarioId = 3;
+  // Aqui le pedimos al usuario que ingrese un id de usuario en particular.
+  const usuarioId = parseInt(prompt("Ingrese el id del usuario que desea buscar."));
   
   
   // Esta función obtiene un usuario específico y sus posts
@@ -22,7 +22,7 @@ import {
     // De ese usuario, sacamos el primer elemento para obtener sus posts
     let post = await getPost(URL, usuario[0]);
   };
-  // Ejecutamos la función con el usuarioId = 3
+  // Ejecutamos la función con el usuarioId que dio el usuario
   getusuarioId(usuarioId);
   
   // Esta función obtiene TODOS los usuarios con:
@@ -57,7 +57,7 @@ import {
 
         const limitedPhotos = await getLimitedPhotos(URL, 1550);
   
-        // Creamos un objeto para agrupar las fotos por su albumId
+        // Aquí creo un objeto para agrupar las fotos por su albumId
         const photosPorAlbum = {};
         limitedPhotos.forEach((photo) => {
           if (!photosPorAlbum[photo.albumId]) {
@@ -66,7 +66,7 @@ import {
           photosPorAlbum[photo.albumId].push(photo);
         });
   
-        // Para cada álbum, añadimos la propiedad "photos" con sus fotos correspondientes
+        // Para cada álbum, añado la propiedad "photos" con sus fotos correspondientes
         const albumsConPhotos = albums.map((album) => {
           return { ...album, photos: photosPorAlbum[album.id] || [] };
         });
