@@ -12,6 +12,7 @@ import {
   
   // Aqui le pedimos al usuario que ingrese un id de usuario en particular.
   const usuarioId = parseInt(prompt("Ingrese el id del usuario que desea buscar."));
+
   
   
   // Esta función obtiene un usuario específico y sus posts
